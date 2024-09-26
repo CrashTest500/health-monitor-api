@@ -1,0 +1,9 @@
+@HealthMonitorApi_HostAddress = http://localhost:5197 
+
+GET {{HealthMonitorApi_HostAddress}}/healthCheck
+Accept: application/json
+
+###
+
+GET {{HealthMonitorApi_HostAddress}}/groups/
+Accept: application/json

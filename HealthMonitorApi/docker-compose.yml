@@ -1,0 +1,29 @@
+﻿services:
+    webapi:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        image: "healthmonitorapi:latest"
+        ports:
+            - "5197:8080"
+        environment:
+            - ASPNETCORE_URLS=http://+:8080;
+            - ASPNETCORE_ENVIRONMENT=Development
+        depends_on:
+            - mongo
+        networks:
+            - my_custom_network
+    mongo:
+        image: mongo:latest
+        ports: 
+            - "27017:27017"
+        volumes:
+            - mongo-data:C:/Users/desal/Desktop/TEMP/data/db
+        networks:
+            - my_custom_network
+networks:
+    my_custom_network:
+        external: false
+volumes:
+    mongo-data:
+            
